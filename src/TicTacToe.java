@@ -11,6 +11,11 @@ public class TicTacToe extends JPanel implements TicTacToeGrid {
         this.row = row;
         this.col = col;
         setSize(new Dimension(GameFrame.WIDTH / 3, GameFrame.HEIGHT / 3));
+        setLayout(new GridLayout(3,3));
+
+        for (int i = 0; i < 9; i++) {
+            add(new JPanel());
+        }
 
         this.setVisible(true);
     }
