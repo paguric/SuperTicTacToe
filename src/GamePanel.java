@@ -2,12 +2,16 @@ import javax.swing.*;
 import java.awt.*;
 
 // Singleton pattern
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel implements TicTacToeGrid {
     private static GamePanel instance = null;
 
     private GamePanel() {
         super(new GridLayout(3, 3));
         setPreferredSize(new Dimension(GameFrame.WIDTH, GameFrame.HEIGHT));
+
+        for (int i = 0; i < 9; i++) {
+            add(new TicTacToe());
+        }
 
         setVisible(true);
     }
@@ -21,13 +25,11 @@ public class GamePanel extends JPanel {
 
     @Override
     public void paint(Graphics g) {
-//        super.paint(g);
+        paintGrid(g);
 
-        g.setColor(Color.BLACK);
-        g.drawLine(GameFrame.WIDTH / 3, 0, GameFrame.WIDTH / 3, GameFrame.HEIGHT);
-        g.drawLine(2 * GameFrame.WIDTH / 3, 0, 2 * GameFrame.WIDTH / 3, GameFrame.HEIGHT);
-        g.drawLine(0, GameFrame.HEIGHT / 3, GameFrame.WIDTH, GameFrame.HEIGHT / 3);
-        g.drawLine(0, 2 * GameFrame.HEIGHT / 3, GameFrame.WIDTH, 2 * GameFrame.HEIGHT / 3);
+        for (int i = 0; i < 9; i++) {
+            getComponent(i).paint(g);
+        }
     }
 
 }
