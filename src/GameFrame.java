@@ -16,6 +16,8 @@ public class GameFrame extends JFrame implements Runnable {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        add(GamePanel.getInstance());
+
         setVisible(true);
     }
 
@@ -27,7 +29,7 @@ public class GameFrame extends JFrame implements Runnable {
     }
 
     private void update(double dt) {
-
+        GamePanel.getInstance().repaint();
     }
 
     @Override
