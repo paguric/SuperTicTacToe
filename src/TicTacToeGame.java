@@ -1,18 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class TicTacToe extends JPanel implements TicTacToeGrid {
+public abstract class TicTacToeGame extends JPanel implements TicTacToeGrid {
 
     private final int row;
     private final int col;
 
-    public TicTacToe(int row, int col) {
+    public TicTacToeGame(int row, int col) {
         super(new GridLayout(3, 3));
         this.row = row;
         this.col = col;
-        setPreferredSize(new Dimension(GameFrame.WIDTH / 3, GameFrame.HEIGHT / 3));
 
-        addMouseListener(new ML());
+        addMouseListener(ML.getInstance());
 
         this.setVisible(true);
     }

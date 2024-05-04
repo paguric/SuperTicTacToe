@@ -5,19 +5,11 @@ import java.awt.*;
 public class GamePanel extends JPanel {
     private static GamePanel instance = null;
 
-    private static TicTacToe mainGame; // the bigger game containing the other 9 games
+    private static BigTicTacToeGame mainGame = new BigTicTacToeGame(); // the bigger game containing the other 9 games
 
     private GamePanel() {
         super();
 
-        mainGame = new TicTacToe(-1,-1);
-        mainGame.setPreferredSize(new Dimension(GameFrame.WIDTH, GameFrame.HEIGHT));
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                mainGame.add(new TicTacToe(i, j));
-            }
-        }
 
         add(mainGame);
 

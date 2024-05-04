@@ -13,12 +13,14 @@ public interface TicTacToeGrid {
 
     default void paintGrid(Graphics g) {
 
-        if (!(getRow() < 0 || getCol() < 0)) {
+        if (getClass() == BigTicTacToeGame.class) {
+            g.setColor(Color.BLACK);
+        } else {
             g.setColor(Color.GRAY);
         }
 
-        int row = Math.max(getRow(), 0);
-        int col = Math.max(getCol(), 0);
+        int row = getRow();
+        int col = getCol();
 
         int width = getWidth();
         int height = getHeight();

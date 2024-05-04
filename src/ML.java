@@ -18,7 +18,7 @@ public class ML implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        TicTacToe ticTacToe = (TicTacToe) e.getSource();
+        TicTacToeGame ticTacToe = (TicTacToeGame) e.getSource();
         Component component = ticTacToe.getComponentAt(e.getPoint());
 
 
