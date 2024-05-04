@@ -2,7 +2,20 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+// Singleton pattern
 public class ML implements MouseListener {
+    private static ML instance = null;
+
+    private ML() {
+    }
+
+    public static ML getInstance() {
+        if (instance == null) {
+            instance = new ML();
+        }
+        return instance;
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         TicTacToe ticTacToe = (TicTacToe) e.getSource();
