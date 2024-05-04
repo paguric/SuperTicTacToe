@@ -19,7 +19,11 @@ public class SmallTicTacToeGame extends TicTacToeGame {
             return false;
         }
         Cell cell = (Cell) super.getComponentAt(p);
-        cell.setO();
+        if (GamePanel.getInstance().getFirstPlayerTurn()) {
+            cell.setX();
+        } else {
+            cell.setO();
+        }
         return true;
     }
 

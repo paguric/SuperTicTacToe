@@ -20,8 +20,12 @@ public class ML implements MouseListener {
     public void mouseClicked(MouseEvent e) {
 
         if (e.getSource().getClass() == SmallTicTacToeGame.class) {
+
             SmallTicTacToeGame game = (SmallTicTacToeGame) e.getSource();
-            game.checkBox(e.getPoint());
+            if (game.checkBox(e.getPoint())) {
+                GamePanel.getInstance().switchTurn();
+            }
+
         }
 
     }

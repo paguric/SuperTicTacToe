@@ -8,7 +8,6 @@ public class Cell extends JPanel {
 
     public Cell() {
         super();
-//        setPreferredSize();
         isX = false;
         isO = false;
     }
