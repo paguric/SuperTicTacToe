@@ -8,8 +8,7 @@ public class GamePanel extends JPanel {
     private static BigTicTacToeGame mainGame = new BigTicTacToeGame(); // the bigger game containing the other 9 games
 
     private GamePanel() {
-        super();
-
+        setPreferredSize(new Dimension(GameFrame.WIDTH, GameFrame.HEIGHT));
 
         add(mainGame);
 
@@ -21,16 +20,6 @@ public class GamePanel extends JPanel {
             instance = new GamePanel();
         }
         return instance;
-    }
-
-    @Override
-    public void paint(Graphics g) {
-
-        mainGame.paint(g);
-        for (int i = 0; i < 9; i++) {
-            mainGame.getComponent(i).paint(g);
-        }
-
     }
 
 }
