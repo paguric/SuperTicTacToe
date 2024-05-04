@@ -31,6 +31,13 @@ public abstract class TicTacToeGame extends JPanel  {
 
     }
 
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
+    }
 
     
 }

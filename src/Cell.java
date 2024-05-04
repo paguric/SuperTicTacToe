@@ -3,11 +3,15 @@ import java.awt.*;
 
 public class Cell extends JPanel {
     private static final int GAP_BETWEEN_EDGES = 10;
+    private int row;
+    private int col;
     private boolean isX;
     private boolean isO;
 
-    public Cell() {
+    public Cell(int row, int col) {
         super();
+        this.row = row;
+        this.col = col;
         isX = false;
         isO = false;
     }
@@ -53,6 +57,14 @@ public class Cell extends JPanel {
             g.drawOval(GAP_BETWEEN_EDGES + 1, GAP_BETWEEN_EDGES + 1, getWidth() - 2 * GAP_BETWEEN_EDGES - 2, getHeight() - 2 * GAP_BETWEEN_EDGES - 2);  // makes line thicker
 
         }
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getCol() {
+        return col;
     }
 
 }

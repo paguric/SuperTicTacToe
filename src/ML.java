@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 // Singleton pattern
 public class ML implements MouseListener {
     private static ML instance = null;
+    private static Cell lastClickedCell = null;
 
     private ML() {
     }
@@ -20,10 +21,15 @@ public class ML implements MouseListener {
     public void mouseClicked(MouseEvent e) {
 
         if (e.getSource().getClass() == SmallTicTacToeGame.class) {
-
             SmallTicTacToeGame game = (SmallTicTacToeGame) e.getSource();
+
+            if (lastClickedCell != null && (game.getRow() != lastClickedCell.getRow() || game.getCol() != lastClickedCell.getCol())) {
+                return;
+            }
+
             if (game.checkBox(e.getPoint())) {
                 GamePanel.getInstance().switchTurn();
+                lastClickedCell = (Cell) game.getComponentAt(e.getPoint());
             }
 
         }

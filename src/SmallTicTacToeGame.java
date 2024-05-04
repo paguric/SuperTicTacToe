@@ -7,8 +7,7 @@ public class SmallTicTacToeGame extends TicTacToeGame {
         setPreferredSize(new Dimension(GameFrame.WIDTH / 3, GameFrame.HEIGHT / 3 ));
 
         for (int i = 0; i < 9; i++) {
-//            pan.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            super.add(new Cell());
+            super.add(new Cell(i / 3, i % 3));
         }
 
         setVisible(true);
