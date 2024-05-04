@@ -8,6 +8,7 @@ public class GameFrame extends JFrame implements Runnable {
     public static final int HEIGHT = 800;
     public static final int FRAMES_PER_SECOND = 30;
     private volatile boolean shutdown = false;
+    private GamePanel gamePanel = GamePanel.getInstance();
 
     private GameFrame() {
         setTitle("Super Tic Tac Toe");
@@ -29,7 +30,8 @@ public class GameFrame extends JFrame implements Runnable {
     }
 
     private void update(double dt) {
-        GamePanel.getInstance().repaint();
+        gamePanel.revalidate();
+        gamePanel.repaint();
     }
 
     @Override

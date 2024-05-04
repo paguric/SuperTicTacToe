@@ -7,15 +7,12 @@ public class TicTacToe extends JPanel implements TicTacToeGrid {
     private final int col;
 
     public TicTacToe(int row, int col) {
-        super();
+        super(new GridLayout(3, 3));
         this.row = row;
         this.col = col;
-        setSize(new Dimension(GameFrame.WIDTH / 3, GameFrame.HEIGHT / 3));
-        setLayout(new GridLayout(3,3));
+        setPreferredSize(new Dimension(GameFrame.WIDTH / 3, GameFrame.HEIGHT / 3));
 
-        for (int i = 0; i < 9; i++) {
-            add(new JPanel());
-        }
+        addMouseListener(new ML());
 
         this.setVisible(true);
     }
@@ -34,4 +31,5 @@ public class TicTacToe extends JPanel implements TicTacToeGrid {
     public int getCol() {
         return col;
     }
+
 }

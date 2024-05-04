@@ -3,7 +3,7 @@ import java.awt.*;
 
 public interface TicTacToeGrid {
 
-    static final int GAP_BETWEEN_EDGES = 10;
+    static final int GAP_BETWEEN_EDGES = 0;
 
     int getRow();
     int getCol();
@@ -13,14 +13,12 @@ public interface TicTacToeGrid {
 
     default void paintGrid(Graphics g) {
 
-        if (getClass().equals(TicTacToe.class)) {
+        if (!(getRow() < 0 || getCol() < 0)) {
             g.setColor(Color.GRAY);
-        } else {
-            g.setColor(Color.BLACK);
         }
 
-        int row = getRow();
-        int col = getCol();
+        int row = Math.max(getRow(), 0);
+        int col = Math.max(getCol(), 0);
 
         int width = getWidth();
         int height = getHeight();
