@@ -6,6 +6,8 @@ public abstract class TicTacToeGame extends JPanel  {
     private final int row;
     private final int col;
 
+    public boolean showGrid = true;
+
     public TicTacToeGame(int row, int col) {
         super(new GridLayout(3, 3, 2, 2));
         this.row = row;
@@ -18,6 +20,10 @@ public abstract class TicTacToeGame extends JPanel  {
 
     @Override
     public void paintComponent(Graphics g) {
+
+        if (!showGrid) {
+            return;
+        }
 
         int GAP_BETWEEN_EDGES = 10;
 

@@ -23,7 +23,16 @@ public class GamePanel extends JPanel {
         return instance;
     }
 
-    public void switchTurn() {
+    public void update() {
+        mainGame.update();
+        switchTurn();
+    }
+
+    public boolean isSmallGameWon(int row, int col) {
+        return mainGame.getComponent(row * 3 + col) instanceof Cell;
+    }
+
+    private void switchTurn() {
         firstPlayerTurn = !firstPlayerTurn;
     }
 

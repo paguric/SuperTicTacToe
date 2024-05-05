@@ -23,13 +23,22 @@ public class ML implements MouseListener {
         if (e.getSource().getClass() == SmallTicTacToeGame.class) {
             SmallTicTacToeGame game = (SmallTicTacToeGame) e.getSource();
 
-            if (lastClickedCell != null && (game.getRow() != lastClickedCell.getRow() || game.getCol() != lastClickedCell.getCol())) {
-                return;
+            if (lastClickedCell != null) {
+                // if lastClickedCell points at an already won game, player can play anywhere
+
+                if (!GamePanel.getInstance().isSmallGameWon(lastClickedCell.getRow(), lastClickedCell.getCol())) {
+                    // selected game is valid if it is in the same row and column of last played cell
+                    if (game.getRow() != lastClickedCell.getRow() || game.getCol() != lastClickedCell.getCol()) {
+                        return;
+                    }
+
+                }
+
             }
 
             if (game.checkBox(e.getPoint())) {
-                GamePanel.getInstance().switchTurn();
                 lastClickedCell = (Cell) game.getComponentAt(e.getPoint());
+                GamePanel.getInstance().update();
             }
 
         }

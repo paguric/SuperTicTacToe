@@ -30,7 +30,6 @@ public class GameFrame extends JFrame implements Runnable {
     }
 
     private void update(double dt) {
-//        gamePanel.revalidate();
         gamePanel.repaint();
     }
 
